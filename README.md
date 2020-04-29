@@ -1,4 +1,5 @@
 # mj-script
+- install chromedriver (MAC: brew cask install chromedriver)
 - (install python3 and pip3)
 - pip3 install selenium
 - pip3 install tqdm
