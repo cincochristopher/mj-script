@@ -13,6 +13,8 @@ def tear_down(driver):
 
 def get_videos(driver):
     driver.get("https://www.midjobs.com/user/earn/youtube.aspx")
+    print('getting links')
+    sleep(range(2))
     links = driver.find_elements_by_class_name("YouTubeLink")
     return links
 
@@ -20,15 +22,14 @@ def watch_videos(ytlinks, driver):
     for link in ytlinks:
         print("watching ... " + link)
         driver.get(link)
-        driver.implicitly_wait(10) 
 
-        sleep(range(5))
+        sleep(range(10))
         required_frame = driver.find_element_by_xpath('//*[@id="player"]')
         driver.switch_to.frame(required_frame) 
 
         ytbtn = driver.find_element_by_xpath("//button[@aria-label='Play']")
         ytbtn.click()
-        sleep(range(40))
+        sleep(range(50))
         print("")
 
 
@@ -52,7 +53,7 @@ def main():
         ctr = 0
         while ctr < total_videos:
             links = get_videos(driver)
-            for i in range(total_videos):
+            for i in range(len(links)):
                 src = links[i].get_attribute("href")
                 if src not in ytlinks:
                     ytlinks.append(links[i].get_attribute("href"))
