@@ -22,7 +22,7 @@ def watch_videos(ytlinks, driver):
         driver.get(link)
         driver.implicitly_wait(10) 
 
-        sleep(range(10))
+        sleep(range(5))
         required_frame = driver.find_element_by_xpath('//*[@id="player"]')
         driver.switch_to.frame(required_frame) 
 
