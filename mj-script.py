@@ -55,7 +55,7 @@ def main():
             links = get_videos(driver)
             for i in range(len(links)):
                 src = links[i].get_attribute("href")
-                if src not in ytlinks:
+                if src not in ytlinks and ctr < total_videos:
                     ytlinks.append(links[i].get_attribute("href"))
                 ctr += 1
 
